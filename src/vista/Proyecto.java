@@ -263,10 +263,10 @@ public class Proyecto extends JFrame implements Runnable {
         jButtonSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalir.setText("Salir");
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/header-bg_v1.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 440));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FondoPantallaPrincipal.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 876, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
