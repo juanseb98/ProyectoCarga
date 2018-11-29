@@ -21,10 +21,11 @@ import vista.Proyecto;
  */
 public class ControladorCbMarcasIzquierdo implements ItemListener {
 
-    //Declaracion de variables y constantes
+//Declaracion de variables y constantes
     private Proyecto ventana;
     private static String MARCA;
     ConeccionBD bd = new ConeccionBD();
+// fin de la declaracion de variable
 
     public ControladorCbMarcasIzquierdo(Proyecto vent) {
         this.ventana = vent;
@@ -32,12 +33,11 @@ public class ControladorCbMarcasIzquierdo implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        //Comprobamos que el item seleccionado en el combobox ha cambiado
-        if (e.getStateChange() == ItemEvent.SELECTED) {
-            //limpiamos el combobox de modelo correspondiente al combobox de marca modificado
-            ventana.limpiarItems(ventana.getCbModeloIzquierdo());
-            //almacenamos el nombre del modelo en una variable
-            MARCA = e.getItem().toString();
+
+        if (e.getStateChange() == ItemEvent.SELECTED) {//Comprobamos que el item seleccionado en el combobox ha cambiado
+
+            ventana.limpiarItems(ventana.getCbModeloIzquierdo());//limpiamos el combobox de modelo correspondiente al combobox de marca modificado
+            MARCA = e.getItem().toString();//almacenamos el nombre del modelo en una variable
 
             ResultSet resultado;
             try {
@@ -45,10 +45,10 @@ public class ControladorCbMarcasIzquierdo implements ItemListener {
                 resultado = bd.realizarConsulta("select NOMBRE from MOVILES where MARCA = (select ID_MARCA from MARCA where NOMBRE = '" + MARCA + "');");
 
                 while (resultado.next()) {
-                    //aniadimos cada modelo a nuestro combobox
-                    ventana.addModeloIzquierdo(resultado.getString("NOMBRE"));
+                    ventana.addModeloIzquierdo(resultado.getString("NOMBRE"));//aniadimos cada modelo a nuestro combobox
                 }
 
+                resultado.close();
             } catch (SQLException ex) {
                 //En caso de no poder realizar la consulta saltara un mensaje informandonos de ello
                 JOptionPane.showMessageDialog(null, "No se pudo realizar la consulta correctamente", "Error Al realizar consulta", JOptionPane.ERROR_MESSAGE);

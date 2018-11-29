@@ -25,6 +25,7 @@ public class ControladorCbMovilDerecho implements ItemListener {
     private Proyecto ventana;
     private static String Movil;
     ConeccionBD bd = new ConeccionBD();
+//fin de la declaracion de constantes y variables
 
     public ControladorCbMovilDerecho(Proyecto vent) {
         this.ventana = vent;
@@ -32,19 +33,21 @@ public class ControladorCbMovilDerecho implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        //Comprobamos que el item seleccionado en el combobox ha cambiado
-        if (e.getStateChange() == ItemEvent.SELECTED) {
-            //almacenamos el nombre del modelo en una variable
-            Movil = e.getItem().toString();
+
+        if (e.getStateChange() == ItemEvent.SELECTED) {//Comprobamos que el item seleccionado en el combobox ha cambiado
+
+            Movil = e.getItem().toString();//almacenamos el nombre del modelo en una variable
             ResultSet resultado;
 
             try {
                 //Realizamos la consulta de los modelos de esa marca
                 resultado = bd.realizarConsulta("select * from MOVILES where NOMBRE='" + Movil + "';");
+
                 while (resultado.next()) {
                     ventana.setImagenDerecha(resultado.getString("FOTO"));
                 }
 
+                resultado.close();
             } catch (SQLException ex) {
                 //En caso de no poder realizar la consulta saltara un mensaje informandonos de ello
                 JOptionPane.showMessageDialog(null, "No se pudo realizar la consulta correctamente", "Error Al realizar consulta", JOptionPane.ERROR_MESSAGE);

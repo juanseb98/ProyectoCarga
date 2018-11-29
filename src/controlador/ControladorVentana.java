@@ -23,6 +23,7 @@ public class ControladorVentana extends WindowAdapter {
     private final Proyecto ventana;
     private static final String CONSULTA_MARCAS = "select NOMBRE from MARCA;";
     ConeccionBD bd = new ConeccionBD();
+//fin de la declaracion de constantes y variables
 
     public ControladorVentana(Proyecto vent) {
         ventana = vent;
@@ -39,9 +40,6 @@ public class ControladorVentana extends WindowAdapter {
 
         ResultSet resultado;
         try {
-            //realizamos la consulta a la base de datos y guardamos los datos
-            resultado = bd.realizarConsulta(CONSULTA_MARCAS);
-
             //Limpiamos los combobox de las marcas
             ventana.limpiarItems(ventana.getCbMarcaDerecho());
             ventana.limpiarItems(ventana.getCbMarcaIzquierdo());
@@ -50,11 +48,15 @@ public class ControladorVentana extends WindowAdapter {
             ventana.addMarcaDerecho("Marca...");
             ventana.addMarcaIzquierdo("Marca...");
 
+            //realizamos la consulta a la base de datos y guardamos los datos
+            resultado = bd.realizarConsulta(CONSULTA_MARCAS);
+
             while (resultado.next()) {
                 //aniadimos el resultado de la consulta a los combobox de modelo
                 ventana.addMarcaDerecho(resultado.getString(1));
                 ventana.addMarcaIzquierdo(resultado.getString(1));
             }
+            resultado.close();
         } catch (SQLException ex) {
             //En caso de no poder realizar la consulta saltara un mensaje informandonos de ello
             JOptionPane.showMessageDialog(null, "No se pudo realizar la consulta correctamente", "Error Al realizar consulta", JOptionPane.ERROR_MESSAGE);

@@ -27,6 +27,8 @@ public class Controlador implements ActionListener {
             case "salir":
                 System.exit(0);
                 break;
+            case "analizar":
+                break;
 
         }
 

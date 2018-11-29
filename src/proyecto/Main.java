@@ -7,9 +7,6 @@ package proyecto;
 
 import vista.VentanaDeCarga;
 import java.awt.BorderLayout;
-import java.awt.Graphics;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JWindow;
@@ -21,25 +18,27 @@ import vista.Proyecto;
 
 public class Main extends JWindow {
 
-    private VentanaDeCarga ventanaDeCarga;
+// declaracion de variables
+    private final VentanaDeCarga ventanaDeCarga;
     private Proyecto ventana;
+// fin de declaracion de variables
 
+//metodo inicial
     public static void main(String args[]) throws InterruptedException {
-        new Main(); // se invoca a la ventana RunSplash
+        Main main = new Main(); // se invoca a la ventana inicial
     }
 
-    /**
-     * Creates new form RunSplash
-     *
-     * @throws InterruptedException
-     */
+//constructor del JWindows
     public Main() throws InterruptedException {
-        ventanaDeCarga = new VentanaDeCarga(); // se crea el objeto Panel
+        //Inicializamos la ventana de carga
+        ventanaDeCarga = new VentanaDeCarga();
 
         this.add(ventanaDeCarga, BorderLayout.CENTER); // se añade el panel en el centro
         this.setSize(ventanaDeCarga.getWidth(), ventanaDeCarga.getHeight());
         this.setLocationRelativeTo(null);// se muestra la ventana de carga en el centro
+
         setVisible(true); // se visualiza la ventana de carga
+
         darEsteticaPantalla();
         ventana = ventanaDeCarga.velocidadDeCarga(ventana);
 
@@ -48,6 +47,9 @@ public class Main extends JWindow {
 
     }
 
+    /**
+     * Metodo encargado de dal la estetica Ninbus a la pantalla
+     */
     private void darEsteticaPantalla() {
         try {
             for (UIManager.LookAndFeelInfo info : getInstalledLookAndFeels()) {

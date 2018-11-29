@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
 
 /**
  *
@@ -36,7 +35,7 @@ public class BarraMenu extends JMenuBar {
         iSalir.addActionListener(crt);
         iSalir.setActionCommand("salir");
         iAnalizar.addActionListener(crt);
-        iAnalizar.setActionCommand("Aniadir");
+        iAnalizar.setActionCommand("analizar");
 
     }
 
