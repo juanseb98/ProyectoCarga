@@ -105,12 +105,10 @@ public class Proyecto extends JFrame implements Runnable {
 
     public void setImagenDerecha(String imagenUrl) {
         this.imagenDerecha.setUrlImagen(imagenUrl);
-        this.imagenDerecha.setScale(0.28);
     }
 
     public void setImagenIzquierda(String imagenUrl) {
         this.imagenIzquierda.setUrlImagen(imagenUrl);
-        this.imagenIzquierda.setScale(0.28);
     }
 
     @SuppressWarnings("unchecked")
@@ -126,6 +124,8 @@ public class Proyecto extends JFrame implements Runnable {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableIzquierdo = new javax.swing.JTable();
         jButtonSalir = new javax.swing.JButton();
+        imagenIzquierda = new imageView.ImageView();
+        imagenDerecha = new imageView.ImageView();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -193,7 +193,7 @@ public class Proyecto extends JFrame implements Runnable {
             jTableDerecho.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 260, 190));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 260, 190));
 
         jTableIzquierdo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -243,6 +243,8 @@ public class Proyecto extends JFrame implements Runnable {
         jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalir.setText("Salir");
         getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
+        getContentPane().add(imagenIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
+        getContentPane().add(imagenDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FondoPantallaPrincipal.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 876, 440));
@@ -256,6 +258,8 @@ public class Proyecto extends JFrame implements Runnable {
     private javax.swing.JComboBox<String> cbModeloDerecho;
     private javax.swing.JComboBox<String> cbModeloIzquierdo;
     private javax.swing.JLabel fondo;
+    private imageView.ImageView imagenDerecha;
+    private imageView.ImageView imagenIzquierda;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

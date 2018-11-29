@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto;
+package main;
 
 import vista.VentanaDeCarga;
 import java.awt.BorderLayout;
